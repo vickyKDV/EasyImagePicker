@@ -1,4 +1,4 @@
-# EasyImagePicker || 
+# EasyImagePicker
 [![](https://jitpack.io/v/vickyKDV/EasyImagePicker.svg)](https://jitpack.io/#vickyKDV/EasyImagePicker)
 
 
@@ -25,6 +25,5 @@
     dependencies {
         ...
         ...
-        implementation 'com.github.vickykdv:CircleRectImageView:1.0'
-    }
-    
+	     implementation 'com.github.vickyKDV:EasyImagePicker:0.1'
+	}
