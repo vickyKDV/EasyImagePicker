@@ -16,11 +16,8 @@ import android.provider.Settings;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.material.bottomsheet.BottomSheetDialog;
@@ -34,7 +31,6 @@ import java.util.ArrayList;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.core.content.ContextCompat;
 import id.zelory.compressor.Compressor;
 
@@ -63,10 +59,9 @@ public class ImagePickerActivity extends AppCompatActivity {
     private static int MAX_WIDTH = 480;
     private static int MAX_HEIGHT = 480;
 
-    public interface PickerOptionListener {
-        void onTakeCameraSelected();
-
-        void onChooseGallerySelected();
+    public static enum option{
+        photoOnly,
+        imageOnly
     }
 
     @Override
@@ -311,7 +306,7 @@ public class ImagePickerActivity extends AppCompatActivity {
         }
     }
 
-    public static void showImagePickerOptions(final Context ctx, final int RESULTCODE, final int MAX_WIDTH, final int MAX_HEIGHT) {
+    public static void showImagePickerOptions(final Context context, final int requestCode, final int maxWidth, final int maxHeight,int option) {
 //        AlertDialog.Builder builder = new AlertDialog.Builder(ctx);
 //        builder.setTitle("Ambil gambar menggunakan");
 //        // add a list
@@ -332,10 +327,10 @@ public class ImagePickerActivity extends AppCompatActivity {
 //        // create and show the alert dialog
 //        AlertDialog dialog = builder.create();
 //        dialog.show();
-//
 
-        final BottomSheetDialog dialog = new BottomSheetDialog(ctx,R.style.BottomSheetDialogTheme);
-        View view = LayoutInflater.from(ctx).inflate(R.layout.bottomdlg_easyimagepicker,(LinearLayout) dialog.findViewById(R.id.lnroot));
+
+        final BottomSheetDialog dialog = new BottomSheetDialog(context,R.style.BottomSheetDialogTheme);
+        View view = LayoutInflater.from(context).inflate(R.layout.bottomdlg_easyimagepicker,(LinearLayout) dialog.findViewById(R.id.lnroot));
 
         dialog.setContentView(view);
         ImageButton camera_sel =  view.findViewById(R.id.btnCamera);
@@ -343,58 +338,19 @@ public class ImagePickerActivity extends AppCompatActivity {
         camera_sel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                launchCameraIntent(ctx,RESULTCODE,MAX_WIDTH,MAX_WIDTH);
+                launchCameraIntent(context,requestCode,maxWidth,maxHeight);
                 dialog.dismiss();
             }
         });
         gallery_sel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                launchGalleryIntent(ctx,RESULTCODE,MAX_WIDTH,MAX_HEIGHT);
+                launchGalleryIntent(context,requestCode,maxWidth,maxHeight);
                 dialog.dismiss();
             }
         });
         dialog.show();
 
-//
-//        ImagePickerActivity.showImagePickerOptions(ctx, new ImagePickerActivity.PickerOptionListener() {
-//            @Override
-//            public void onTakeCameraSelected() {
-////                launchCameraIntent(ctx,REQUEST_IMAGE,MAX_WIDTH,MAX_HEIGHT);
-//                Intent intent = new Intent(ctx, ImagePickerActivity.class);
-//                intent.putExtra(ImagePickerActivity.INTENT_IMAGE_PICKER_OPTION, ImagePickerActivity.REQUEST_IMAGE_CAPTURE);
-//
-//                // setting aspect ratio
-//                intent.putExtra(ImagePickerActivity.INTENT_LOCK_ASPECT_RATIO, true);
-//                intent.putExtra(ImagePickerActivity.INTENT_ASPECT_RATIO_X, 1); // 16x9, 1x1, 3:4, 3:2
-//                intent.putExtra(ImagePickerActivity.INTENT_ASPECT_RATIO_Y, 1);
-//
-//                // setting maximum bitmap width and height
-//                intent.putExtra(ImagePickerActivity.INTENT_SET_BITMAP_MAX_WIDTH_HEIGHT, true);
-//                intent.putExtra(ImagePickerActivity.INTENT_BITMAP_MAX_WIDTH, MAX_WIDTH);
-//                intent.putExtra(ImagePickerActivity.INTENT_BITMAP_MAX_HEIGHT, MAX_HEIGHT);
-//                ((Activity) ctx).startActivityForResult(intent, REQUEST_IMAGE);
-//            }
-//
-//            @Override
-//            public void onChooseGallerySelected() {
-////                launchGalleryIntent(ctx,REQUEST_IMAGE,MAX_WIDTH,MAX_HEIGHT);
-//                Intent intent = new Intent(ctx, ImagePickerActivity.class);
-//                intent.putExtra(ImagePickerActivity.INTENT_IMAGE_PICKER_OPTION, ImagePickerActivity.REQUEST_GALLERY_IMAGE);
-//
-//                // setting aspect ratio
-//                intent.putExtra(ImagePickerActivity.INTENT_LOCK_ASPECT_RATIO, true);
-//                intent.putExtra(ImagePickerActivity.INTENT_ASPECT_RATIO_X, 1); // 16x9, 1x1, 3:4, 3:2
-//                intent.putExtra(ImagePickerActivity.INTENT_ASPECT_RATIO_Y, 1);
-//
-//                // setting maximum bitmap width and height
-//                intent.putExtra(ImagePickerActivity.INTENT_SET_BITMAP_MAX_WIDTH_HEIGHT, true);
-//                intent.putExtra(ImagePickerActivity.INTENT_BITMAP_MAX_WIDTH, MAX_WIDTH);
-//                intent.putExtra(ImagePickerActivity.INTENT_BITMAP_MAX_HEIGHT, MAX_HEIGHT);
-//
-//                ((Activity)ctx).startActivityForResult(intent, REQUEST_IMAGE);
-//            }
-//        });
     }
 
     private static void launchCameraIntent(Context ctx, int REQUEST_IMAGE, int MAX_WIDTH, int MAX_HEIGHT) {
