@@ -1,4 +1,5 @@
-# EasyImagePicker
+# EasyImagePicker || 
+[![](https://jitpack.io/v/vickyKDV/EasyImagePicker.svg)](https://jitpack.io/#vickyKDV/EasyImagePicker)
 
 
 ![alt text](https://raw.githubusercontent.com/vickyKDV/EasyImagePicker/master/dialogpng.png)
