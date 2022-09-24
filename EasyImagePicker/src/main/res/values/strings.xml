@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="eip_allow_access_title">Berikan akses</string>
+    <string name="eip_allow_access_description">Berikan akses untuk mengambil kamera dan melihat galerry</string>
+    <string name="eip_goto_setting">Pengaturan</string>
+    <string name="eip_cancel">Batal</string>
+    <string name="eip_denied_access_message">Berikan akses untuk mengambil kamera dan melihat galery</string>
+    <string name="eip_camera">Camera</string>
+    <string name="eip_galery">Galery</string>
+    <string name="eip_choice_selected">Ambil gambar menggunakan ?</string>
+    <string name="eip_no_camera_ready">Camera error!</string>
+</resources>
