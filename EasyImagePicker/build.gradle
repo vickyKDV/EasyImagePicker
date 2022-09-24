@@ -34,8 +34,7 @@ afterEvaluate {
 
                 // Replace with the name of your library
                 artifactId 'easyimagepicker'
-                version '1.5 ,m,' +
-                        ''
+                version '1.5'
             }
 
         }
@@ -49,27 +48,6 @@ afterEvaluate {
                 }
                 url = uri("https://maven.pkg.github.com/vickykdv/easyimagepicker")
             }
-//            maven {
-//                name = "GitHubPackages"
-//                url = uri("https://maven.pkg.github.com/vickykdv/easyimagepicker")
-//                credentials {
-//                    username = keyProperties['user']
-//                    password = keyProperties['key']
-//                }
-//            }
-//            maven {
-//                name = "easyimagepicker"
-//
-//                // Replace GITHUB_USERID with your personal or organisation user ID and
-//                // REPOSITORY with the name of the repository on GitHub
-////                url = uri("https://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@maven.pkg.github.com/vickykdv/easyimagepicker")
-//                url = uri("https://maven.pkg.github.com/vickykdv/easyimagepicker")
-//
-//                credentials {
-//                    username = keyProperties['user']
-//                    password = keyProperties['key']
-//                }
-//            }
         }
     }
 }
