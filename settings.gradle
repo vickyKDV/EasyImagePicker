@@ -1,31 +1,31 @@
 
 
-pluginManagement {
-    repositories {
-        gradlePluginPortal()
-        google()
-        mavenCentral()
-    }
-
-
-}
-
-dependencyResolutionManagement {
-    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
-    repositories {
-        google()
-        jcenter()
-        mavenCentral()
-        maven { url "https://jitpack.io" }
-        gradlePluginPortal()
-    }
-
-    buildscript {
-        dependencies {
-            classpath "com.github.dcendents:android-maven-gradle-plugin:2.0"
-        }
-    }
-}
+//pluginManagement {
+//    repositories {
+//        gradlePluginPortal()
+//        google()
+//        mavenCentral()
+//    }
+//
+//
+//}
+//
+//dependencyResolutionManagement {
+//    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+//    repositories {
+//        google()
+//        jcenter()
+//        mavenCentral()
+//        maven { url "https://jitpack.io" }
+//        gradlePluginPortal()
+//    }
+//
+//    buildscript {
+//        dependencies {
+//            classpath "com.github.dcendents:android-maven-gradle-plugin:2.0"
+//        }
+//    }
+//}
 rootProject.name = "MyEasyImagePicker"
 include ':app'
 include ':easyimagepicker'
