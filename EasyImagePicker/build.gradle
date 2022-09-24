@@ -1,23 +1,12 @@
-plugins {
-    id 'com.android.library'
-    id 'org.jetbrains.kotlin.android'
-    id 'maven-publish'
-}
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-parcelize'
+apply plugin: 'maven-publish'
 
 
 
 android {
-    android {
-        publishing {
-            singleVariant('release') {
-                withSourcesJar()
-                withJavadocJar()
-            }
-        }
-    }
-
     compileSdk 32
-
     android {
         lint {
             baseline = file("lint-baseline.xml")
@@ -74,12 +63,6 @@ dependencies {
 //    Compressed image selected
     implementation 'id.zelory:compressor:2.1.0'
 
-    apply {
-        'com.github.dcendents.android-maven'
-    }
-    setGroup('com.github.vickyKDV')
-
-
 }
 
 afterEvaluate {
@@ -87,7 +70,6 @@ afterEvaluate {
         publications {
             release(MavenPublication) {
                 from components.release
-
                 groupId = 'com.github.vickykdv'
                 artifactId = 'easyimagepicker'
                 version = '1.4'
@@ -95,20 +77,8 @@ afterEvaluate {
         }
     }
 }
-//
-//afterEvaluate {
-//    publishing {
-//        publications {
-//            // Creates a Maven publication called "release".
-//            release(MavenPublication) {
-//                // Applies the component for the release build variant.
-//                from components.release
-//                // You can then customize attributes of the publication as shown below.
-//                groupId = 'com.github.vickykdv'
-//                artifactId = 'final'
-//                version = '1.4'
-//            }
-//        }
-//    }
-//}
+
+repositories {
+    mavenCentral()
+}
 
