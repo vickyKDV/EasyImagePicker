@@ -2,7 +2,6 @@ plugins {
     id 'com.android.library'
     id 'org.jetbrains.kotlin.android'
     id 'kotlin-android-extensions'
-    id 'maven-publish'
 }
 
 android {
@@ -34,6 +33,7 @@ android {
     }
 }
 
+
 dependencies {
 
     implementation 'androidx.core:core-ktx:1.7.0'
@@ -54,6 +54,5 @@ dependencies {
 
 //    Compressed image selected
     implementation 'id.zelory:compressor:2.1.0'
-    implementation 'com.github.vickykdv:easyimagepicker:1.1'
 
 }
