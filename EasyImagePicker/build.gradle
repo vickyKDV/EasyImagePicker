@@ -6,7 +6,73 @@ plugins {
     id 'maven-publish'
 }
 
+def keyProperties = new Properties()
+def keyPropertiesFile = rootProject.file('github.properties')
+if (keyPropertiesFile.exists()) {
+    keyProperties.load(new FileInputStream(keyPropertiesFile))
+}
+afterEvaluate {
+    publishing {
+        publications {
 
+            release(MavenPublication) {
+                from components.release
+
+                // Replace with your own group ID.
+                groupId 'com.github.vickyKDV'
+
+                // Replace with the name of your library
+                artifactId 'easyimagepicker'
+                version '1.5'
+            }
+
+            debug(MavenPublication) {
+                from components.debug
+
+                // Replace with your own group ID.
+                groupId 'com.github.vickyKDV'
+
+                // Replace with the name of your library
+                artifactId 'easyimagepicker'
+                version '1.5 ,m,' +
+                        ''
+            }
+
+        }
+
+
+        repositories {
+            maven {
+                credentials {
+                    username = keyProperties['user']
+                    password = keyProperties['key']
+                }
+                url = uri("https://maven.pkg.github.com/vickykdv/easyimagepicker")
+            }
+//            maven {
+//                name = "GitHubPackages"
+//                url = uri("https://maven.pkg.github.com/vickykdv/easyimagepicker")
+//                credentials {
+//                    username = keyProperties['user']
+//                    password = keyProperties['key']
+//                }
+//            }
+//            maven {
+//                name = "easyimagepicker"
+//
+//                // Replace GITHUB_USERID with your personal or organisation user ID and
+//                // REPOSITORY with the name of the repository on GitHub
+////                url = uri("https://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@maven.pkg.github.com/vickykdv/easyimagepicker")
+//                url = uri("https://maven.pkg.github.com/vickykdv/easyimagepicker")
+//
+//                credentials {
+//                    username = keyProperties['user']
+//                    password = keyProperties['key']
+//                }
+//            }
+        }
+    }
+}
 android {
     compileSdk 32
     defaultConfig {
@@ -60,4 +126,3 @@ dependencies {
     implementation 'id.zelory:compressor:2.1.0'
 
 }
-
