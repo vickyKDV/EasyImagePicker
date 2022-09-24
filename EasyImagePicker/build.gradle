@@ -7,7 +7,14 @@ plugins {
 
 
 android {
-
+    android {
+        publishing {
+            singleVariant('release') {
+                withSourcesJar()
+                withJavadocJar()
+            }
+        }
+    }
 
     compileSdk 32
 
