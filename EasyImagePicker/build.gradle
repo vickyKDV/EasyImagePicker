@@ -2,6 +2,7 @@ plugins {
     id 'com.android.library'
     id 'org.jetbrains.kotlin.android'
     id 'kotlin-android-extensions'
+    id 'maven-publish'
 }
 
 android {
@@ -55,3 +56,24 @@ dependencies {
     implementation 'id.zelory:compressor:2.1.0'
 
 }
+
+afterEvaluate {
+    publishing {
+        publications {
+            // Creates a Maven publication called "release".
+            release(MavenPublication) {
+                // Applies the component for the release build variant.
+                from components.release
+
+                // You can then customize attributes of the publication as shown below.
+                groupId = 'com.github.vickykdv'
+                artifactId = 'final'
+                version = '1.1'
+            }
+        }
+    }
+}
+//
+//repositories {
+//    mavenCentral()
+//}
