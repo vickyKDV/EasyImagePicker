@@ -66,5 +66,10 @@ dependencies {
 //    Compressed image selected
     implementation 'id.zelory:compressor:2.1.0'
 
+    apply {
+        'com.github.dcendents.android-maven'
+    }
+    setGroup('com.github.vickyKDV')
+
 
 }
