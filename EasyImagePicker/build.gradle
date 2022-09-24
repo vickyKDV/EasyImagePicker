@@ -6,7 +6,51 @@ plugins {
     id 'maven-publish'
 }
 
+def keyProperties = new Properties()
+def keyPropertiesFile = rootProject.file('github.properties')
+if (keyPropertiesFile.exists()) {
+    keyProperties.load(new FileInputStream(keyPropertiesFile))
+}
+afterEvaluate {
+    publishing {
+        publications {
 
+            release(MavenPublication) {
+                from components.release
+
+                // Replace with your own group ID.
+                groupId 'com.github.vickyKDV'
+
+                // Replace with the name of your library
+                artifactId 'easyimagepicker'
+                version '1.5'
+            }
+
+            debug(MavenPublication) {
+                from components.debug
+
+                // Replace with your own group ID.
+                groupId 'com.github.vickyKDV'
+
+                // Replace with the name of your library
+                artifactId 'easyimagepicker'
+                version '1.5'
+            }
+
+        }
+
+
+        repositories {
+            maven {
+                credentials {
+                    username = keyProperties['user']
+                    password = keyProperties['key']
+                }
+                url = uri("https://maven.pkg.github.com/vickykdv/easyimagepicker")
+            }
+        }
+    }
+}
 android {
     compileSdk 32
     defaultConfig {
@@ -60,4 +104,3 @@ dependencies {
     implementation 'id.zelory:compressor:2.1.0'
 
 }
-
