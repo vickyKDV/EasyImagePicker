@@ -161,12 +161,12 @@ open class EIPBaseActivity:AppCompatActivity() {
 		val builder = AlertDialog.Builder(this)
 		builder.setTitle(R.string.eip_allow_access_title)
 		builder.setMessage(R.string.eip_allow_access_description)
-		builder.setPositiveButton(R.string.eip_goto_setting) { dialog, which ->
+		builder.setPositiveButton(R.string.eip_goto_setting) { dialog, _ ->
 			dialog.cancel()
 			openSettings()
 			finish()
 		}
-		builder.setNegativeButton(R.string.eip_cancel) { dialog, which ->
+		builder.setNegativeButton(R.string.eip_cancel) { dialog, _ ->
 			dialog.cancel()
 			finish()
 		}
