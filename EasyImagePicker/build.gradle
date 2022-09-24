@@ -89,7 +89,7 @@ afterEvaluate {
                 from components.release
 
                 groupId = 'com.github.vickykdv'
-                artifactId = 'EasyImagePicker'
+                artifactId = 'easyimagepicker'
                 version = '1.4'
             }
         }
