@@ -14,28 +14,37 @@ if (keyPropertiesFile.exists()) {
 afterEvaluate {
     publishing {
         publications {
-
             release(MavenPublication) {
+                // Applies the component for the release build variant.
                 from components.release
 
-                // Replace with your own group ID.
-                groupId 'com.github.vickyKDV'
-
-                // Replace with the name of your library
-                artifactId 'easyimagepicker'
-                version '1.5'
+                // You can then customize attributes of the publication as shown below.
+                groupId = 'com.github.vickykdv'
+                artifactId = 'final'
+                version = '1.5'
             }
-
-            debug(MavenPublication) {
-                from components.debug
-
-                // Replace with your own group ID.
-                groupId 'com.github.vickyKDV'
-
-                // Replace with the name of your library
-                artifactId 'easyimagepicker'
-                version '1.5'
-            }
+//
+//            release(MavenPublication) {
+//                from components.release
+//
+//                // Replace with your own group ID.
+//                groupId 'com.github.vickyKDV'
+//
+//                // Replace with the name of your library
+//                artifactId 'easyimagepicker'
+//                version '1.5'
+//            }
+//
+//            debug(MavenPublication) {
+//                from components.debug
+//
+//                // Replace with your own group ID.
+//                groupId 'com.github.vickyKDV'
+//
+//                // Replace with the name of your library
+//                artifactId 'easyimagepicker'
+//                version '1.5'
+//            }
 
         }
 
