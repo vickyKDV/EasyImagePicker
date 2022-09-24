@@ -1,10 +1,10 @@
-plugins {
-    id 'com.android.library'
-    id 'org.jetbrains.kotlin.android'
-    id 'kotlin-android'
-    id 'kotlin-parcelize'
-    id 'maven-publish'
-}
+//plugins {
+apply plugin: 'com.android.library'
+apply plugin: 'org.jetbrains.kotlin.android'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-parcelize'
+apply plugin: 'maven-publish'
+//}
 
 def keyProperties = new Properties()
 def keyPropertiesFile = rootProject.file('github.properties')
