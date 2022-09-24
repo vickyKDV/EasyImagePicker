@@ -13,6 +13,8 @@ android {
         }
     }
 
+
+
     defaultConfig {
         minSdk 19
         targetSdk 32
@@ -64,21 +66,34 @@ dependencies {
     implementation 'id.zelory:compressor:2.1.0'
 
 }
+//
+//afterEvaluate {
+//    publishing {
+//        publications {
+//            release(MavenPublication) {
+//                from components.release
+//                groupId = 'com.github.vickykdv'
+//                artifactId = 'easyimagepicker'
+//                version = '1.4'
+//            }
+//        }
+//    }
+//}
+//
+//repositories {
+//    mavenCentral()
+//}
 
 afterEvaluate {
     publishing {
         publications {
-            release(MavenPublication) {
+            mavenJava(MavenPublication) {
                 from components.release
-                groupId = 'com.github.vickykdv'
-                artifactId = 'easyimagepicker'
-                version = '1.4'
             }
         }
+        repositories {
+            mavenLocal()
+        }
     }
-}
-
-repositories {
-    mavenCentral()
 }
 
