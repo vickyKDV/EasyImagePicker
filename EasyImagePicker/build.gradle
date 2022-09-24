@@ -2,9 +2,18 @@ plugins {
     id 'com.android.library'
     id 'org.jetbrains.kotlin.android'
     id 'kotlin-android-extensions'
+    id 'maven-publish'
 }
 
+
+
 android {
+
+    publishing {
+        singleVariant('release') {
+            withSourcesJar()
+        }
+    }
     compileSdk 32
 
     defaultConfig {
@@ -54,5 +63,4 @@ dependencies {
 
 //    Compressed image selected
     implementation 'id.zelory:compressor:2.1.0'
-
 }
