@@ -9,11 +9,6 @@ plugins {
 
 android {
 
-    publishing {
-        singleVariant('release') {
-            withSourcesJar()
-        }
-    }
     compileSdk 32
 
     defaultConfig {
@@ -21,6 +16,7 @@ android {
         targetSdk 32
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles "consumer-rules.pro"
+
     }
 
     buildTypes {
@@ -63,4 +59,6 @@ dependencies {
 
 //    Compressed image selected
     implementation 'id.zelory:compressor:2.1.0'
+
+
 }

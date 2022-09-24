@@ -12,8 +12,12 @@ android {
         targetSdk 32
         versionCode 2
         versionName "2.0"
-
+        multiDexEnabled true
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+    packagingOptions {
+        exclude "META-INF/DEPENDENCIES"
+        exclude "androidsupportmultidexversion.txt"
     }
 
     buildTypes {
@@ -43,5 +47,6 @@ dependencies {
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
     implementation project(path: ':easyimagepicker')
+    implementation 'com.android.support:multidex:1.0.3'
 
 }
