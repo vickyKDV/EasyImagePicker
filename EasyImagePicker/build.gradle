@@ -1,20 +1,14 @@
-apply plugin: 'com.android.library'
-apply plugin: 'kotlin-android'
-apply plugin: 'kotlin-parcelize'
-apply plugin: 'maven-publish'
-
+plugins {
+    id 'com.android.library'
+    id 'org.jetbrains.kotlin.android'
+    id 'kotlin-android'
+    id 'kotlin-parcelize'
+    id 'maven-publish'
+}
 
 
 android {
     compileSdk 32
-    android {
-        lint {
-            baseline = file("lint-baseline.xml")
-        }
-    }
-
-
-
     defaultConfig {
         minSdk 19
         targetSdk 32
@@ -65,35 +59,5 @@ dependencies {
 //    Compressed image selected
     implementation 'id.zelory:compressor:2.1.0'
 
-}
-//
-//afterEvaluate {
-//    publishing {
-//        publications {
-//            release(MavenPublication) {
-//                from components.release
-//                groupId = 'com.github.vickykdv'
-//                artifactId = 'easyimagepicker'
-//                version = '1.4'
-//            }
-//        }
-//    }
-//}
-//
-//repositories {
-//    mavenCentral()
-//}
-
-afterEvaluate {
-    publishing {
-        publications {
-            mavenJava(MavenPublication) {
-                from components.release
-            }
-        }
-        repositories {
-            mavenLocal()
-        }
-    }
 }
 
