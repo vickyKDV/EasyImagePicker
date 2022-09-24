@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<issues format="6" by="lint 7.2.0" type="baseline" client="gradle" dependencies="false" name="AGP (7.2.0)" variant="all" version="7.2.0">
+
+    <issue
+        id="UnusedAttribute"
+        message="Attribute `android:foreground` has no effect on API levels lower than 23 (current min is 19)"
+        errorLine1="                    android:foreground=&quot;?attr/selectableItemBackgroundBorderless&quot;"
+        errorLine2="                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/layout/bottomdlg_easyimagepicker.xml"
+            line="100"
+            column="21"/>
+    </issue>
+
+    <issue
+        id="QueryPermissionsNeeded"
+        message="Consider adding a `&lt;queries>` declaration to your manifest when calling this \&#xA;method; see https://g.co/dev/packagevisibility for details"
+        errorLine1="    if (i.resolveActivity(packageManager) == null) {"
+        errorLine2="          ~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/java/com/lesehankoding/easyimagepicker/EIPActivity.kt"
+            line="63"
+            column="11"/>
+    </issue>
+
+    <issue
+        id="VectorDrawableCompat"
+        message="To use VectorDrawableCompat, you need to set `android.defaultConfig.vectorDrawables.useSupportLibrary = true` in `:easyimagepicker/build.gradle`"
+        errorLine1="                    app:srcCompat=&quot;@drawable/imgeasyimage&quot;/>"
+        errorLine2="                    ~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/layout/bottomdlg_easyimagepicker.xml"
+            line="102"
+            column="21"/>
+    </issue>
+
+    <issue
+        id="GradleDependency"
+        message="A newer version of androidx.core:core-ktx than 1.7.0 is available: 1.9.0"
+        errorLine1="    implementation &apos;androidx.core:core-ktx:1.7.0&apos;"
+        errorLine2="                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="build.gradle"
+            line="49"
+            column="20"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.color.colorOutlineEIP` appears to be unused"
+        errorLine1="    &lt;color name=&quot;colorOutlineEIP&quot;>#8A8A8A&lt;/color>"
+        errorLine2="           ~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/colors.xml"
+            line="4"
+            column="12"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.style.AppTheme` appears to be unused"
+        errorLine1="    &lt;style name=&quot;AppTheme&quot; parent=&quot;Theme.AppCompat.Light.NoActionBar&quot;>"
+        errorLine2="           ~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/styles.xml"
+            line="2"
+            column="12"/>
+    </issue>
+
+    <issue
+        id="ContentDescription"
+        message="Missing `contentDescription` attribute on image"
+        errorLine1="                &lt;ImageButton"
+        errorLine2="                 ~~~~~~~~~~~">
+        <location
+            file="src/main/res/layout/bottomdlg_easyimagepicker.xml"
+            line="93"
+            column="18"/>
+    </issue>
+
+</issues>

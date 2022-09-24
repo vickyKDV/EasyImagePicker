@@ -1,9 +1,13 @@
+
+
 pluginManagement {
     repositories {
         gradlePluginPortal()
         google()
         mavenCentral()
     }
+
+
 }
 
 dependencyResolutionManagement {
@@ -14,6 +18,12 @@ dependencyResolutionManagement {
         mavenCentral()
         maven { url "https://jitpack.io" }
         gradlePluginPortal()
+    }
+
+    buildscript {
+        dependencies {
+            classpath "com.github.dcendents:android-maven-gradle-plugin:2.0"
+        }
     }
 }
 rootProject.name = "MyEasyImagePicker"

@@ -2,7 +2,7 @@ package com.lesehankoding.myeasyimagepicker
 
 import android.app.*
 import android.content.*
-import android.support.multidex.*
+import androidx.multidex.*
 
 class MyApplication:Application() {
 	override fun attachBaseContext(base: Context) {

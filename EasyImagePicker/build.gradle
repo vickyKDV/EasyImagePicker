@@ -1,7 +1,6 @@
 plugins {
     id 'com.android.library'
     id 'org.jetbrains.kotlin.android'
-    id 'kotlin-android-extensions'
     id 'maven-publish'
 }
 
@@ -10,6 +9,12 @@ plugins {
 android {
 
     compileSdk 32
+
+    android {
+        lint {
+            baseline = file("lint-baseline.xml")
+        }
+    }
 
     defaultConfig {
         minSdk 19
@@ -41,6 +46,7 @@ android {
 
 dependencies {
 
+    //noinspection GradleDependency
     implementation 'androidx.core:core-ktx:1.7.0'
     implementation 'androidx.appcompat:appcompat:1.5.1'
     implementation 'com.google.android.material:material:1.6.1'
